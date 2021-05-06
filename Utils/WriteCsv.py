@@ -2,7 +2,7 @@ import csv
 from Utils import Dictionary
 
 def writeInCsv():
-    field_names = ['Standard', 'PhyR', 'SRA', 'DSL Interface']
+    field_names = ['Standard', 'phyR', 'sra', 'DSL Interface']
 
     df = Dictionary.dict
 
