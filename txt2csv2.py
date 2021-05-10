@@ -41,6 +41,6 @@ with open(path, 'r') as f:
             if (end_line in line) and (start_line_num != 0):
                 start_line_num = 0
     print(Dictionary.dict)
-    #WriteCsv.writeInCsv()
+    WriteCsv.writeInCsv()
 
 
