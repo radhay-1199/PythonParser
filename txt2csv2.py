@@ -13,13 +13,13 @@ with open('C:\\Users\\ac80060\\Downloads\\Headings.txt') as file:
     list = file.read().splitlines()
     file.close()
 
-# with open(path, 'a+') as f:
-#     f.seek(0)
-#     data=f.read(100)
-#     if len(data)>0:
-#         f.write("\n")
-#     f.write(end_line)
-#     f.close()
+with open(path, 'a+') as f:
+    f.seek(0)
+    data = f.read(100)
+    if len(data) > 0:
+        f.write("\n")
+    f.write(end_line)
+    f.close()
 
 with open(path, 'r') as f:
     line_num = 0

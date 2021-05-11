@@ -23,18 +23,18 @@ def writeInCsv():
                    'pair2up0Latn', 'pair2up0Satn', 'pair2up0Margin', 'pair2up0TxPower', 'pair2up1Latn', 'pair2up1Satn',
                    'pair2up1Margin', 'pair2up1TxPower', 'pair2dn1Latn', 'pair2dn1Satn', 'pair2dn1Margin',
                    'pair2dn1TxPower', 'pair2dn2Latn', 'pair2dn2Satn', 'pair2dn2Margin', 'pair2dn2TxPower',
-                   'modemFirmVersion', 'dslVersion', 'modemChipset', 'vendorName', 'vendorId', 'dslDataMode',
-                   'dslDataLink', 'dslEmulationType', 'dslPriVc', 'dslRxBytes', 'dslRxFrames', 'dslRxErrors',
-                   'dslTxBytes', 'dslTxFrames', 'dslTxErrors', 'wanIpv4Ip', 'wanIpv4Mask', 'lanIpv4Ip', 'lanIpv4Mask',
-                   'wanIpv4Gw', 'dnsServer0', 'wanMacAddress', 'ipv4State', 'wanVlanId', 'ethRxBytes', 'ethRxFrames',
-                   'ethRxErrors', 'ethRxDropped', 'ethTxBytes', 'ethTxFrames', 'ethTxErrors', 'ethTxDropped',
-                   'ethTxCollisions', 'ethLinkStatus', 'pingDestination', 'pingRequestsTx', 'pingRepliesRx',
-                   'pingPercentLost', 'pingLostPerLostPerc', 'pingCurrDelay', 'pingAvgDelay', 'pingMaxDelay',
-                   'pingMinDelay', 'pingMessage', 'pingLastPingIp', 'traceRtDestination', 'traceRtState',
-                   'traceRtActive', 'traceRtNumHops', 'traceRtHop1Delay', 'traceRtHop1Ip', 'traceRtHop1Nm',
-                   'traceRtHop2Delay', 'traceRtHop2Ip', 'traceRtHop2Nm', 'traceRtHop3Delay', 'traceRtHop3Ip',
-                   'traceRtHop3Nm', 'traceRtHop4Delay', 'traceRtHop4Ip', 'traceRtHop4Nm', 'traceRtHop5Delay',
-                   'traceRtHop5Ip', 'traceRtHop5Nm']
+                   'pair2dn3Latn', 'pair2dn3Satn', 'pair2dn3Margin', 'pair2dn3TxPower','modemFirmVersion', 'dslVersion',
+                   'modemChipset', 'vendorName', 'vendorId', 'dslDataMode', 'dslDataLink', 'dslEmulationType',
+                   'dslPriVc', 'dslRxBytes', 'dslRxFrames', 'dslRxErrors', 'dslTxBytes', 'dslTxFrames', 'dslTxErrors',
+                   'wanIpv4Ip', 'wanIpv4Mask', 'lanIpv4Ip', 'lanIpv4Mask', 'wanIpv4Gw', 'dnsServer0', 'wanMacAddress',
+                   'ipv4State', 'wanVlanId', 'ethRxBytes', 'ethRxFrames', 'ethRxErrors', 'ethRxDropped', 'ethTxBytes',
+                   'ethTxFrames', 'ethTxErrors', 'ethTxDropped', 'ethTxCollisions', 'ethLinkStatus', 'pingDestination',
+                   'pingRequestsTx', 'pingRepliesRx', 'pingPercentLost', 'pingLostPerLostPerc', 'pingCurrDelay',
+                   'pingAvgDelay', 'pingMaxDelay', 'pingMinDelay', 'pingMessage', 'pingLastPingIp',
+                   'traceRtDestination', 'traceRtState', 'traceRtActive', 'traceRtNumHops', 'traceRtHop1Delay',
+                   'traceRtHop1Ip', 'traceRtHop1Nm', 'traceRtHop2Delay', 'traceRtHop2Ip', 'traceRtHop2Nm',
+                   'traceRtHop3Delay', 'traceRtHop3Ip', 'traceRtHop3Nm', 'traceRtHop4Delay', 'traceRtHop4Ip',
+                   'traceRtHop4Nm', 'traceRtHop5Delay', 'traceRtHop5Ip', 'traceRtHop5Nm']
 
     df = Dictionary.dict
 
