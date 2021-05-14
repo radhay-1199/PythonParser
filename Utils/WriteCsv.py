@@ -34,7 +34,7 @@ def writeInCsv():
                    'traceRtDestination', 'traceRtState', 'traceRtActive', 'traceRtNumHops', 'traceRtHop1Delay',
                    'traceRtHop1Ip', 'traceRtHop1Nm', 'traceRtHop2Delay', 'traceRtHop2Ip', 'traceRtHop2Nm',
                    'traceRtHop3Delay', 'traceRtHop3Ip', 'traceRtHop3Nm', 'traceRtHop4Delay', 'traceRtHop4Ip',
-                   'traceRtHop4Nm', 'traceRtHop5Delay', 'traceRtHop5Ip', 'traceRtHop5Nm']
+                   'traceRtHop4Nm', 'traceRtHop5Delay', 'traceRtHop5Ip', 'traceRtHop5Nm', 'bits', 'snr', 'hlog', 'qln']
 
     df = Dictionary.dict
 
