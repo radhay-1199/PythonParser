@@ -1,9 +1,11 @@
 import csv
+from datetime import datetime
 from Utils import Dictionary
 
 
 def writeInCsv():
-    field_names = ['assetManufacturer', 'assetModel', 'assetUniqueId', 'assetSwVersion', 'vectoring', 'phyR', 'sra',
+    field_names = ['wtn', 'techUploadSource', 'techTestLocation', 'partialTestSetUpload', 'assetManufacturer',
+                   'assetModel', 'assetUniqueId', 'assetSwVersion', 'vectoring', 'phyR', 'sra',
                    'dslInterface', 'modemTemp', 'pair1capacityUp', 'pair1capacityDn', 'pair1marginUp', 'pair1marginDn',
                    'upGrpMaxRate', 'upGrpMaxCap', 'dnGrpMaxRate', 'dnGrpMaxCap', 'lapseTime', 'vectorBand',
                    'vectorState', 'errSampleSent', 'errSampleDrop', 'errStatusSent', 'errStatusDrop', 'pair2capacityUp',
@@ -37,8 +39,9 @@ def writeInCsv():
                    'traceRtHop4Nm', 'traceRtHop5Delay', 'traceRtHop5Ip', 'traceRtHop5Nm', 'bits', 'snr', 'hlog', 'qln']
 
     df = Dictionary.dict
-
-    with open('Sample.csv', 'w') as csvfile:
+    datetimestr = datetime.now().strftime('_%Y%m%d%H%M%S')
+    csv_file_name = "HST" + datetimestr + ".csv"
+    with open(csv_file_name, 'w') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=field_names)
         writer.writeheader()
         writer.writerow(df)

@@ -55,24 +55,25 @@ def extractCsv(df):
     #print('--------------------------')
 
 
-path = "C:\\Users\\ac80060\\Downloads\\DP12187442762S.csv"
-try:
-    df = pd.read_csv(path, header=None, skiprows=[1, 2, 3, 4, 5, 6, 7],
-                 usecols=[2, 3, 4, 5], error_bad_lines=False)
-    extractCsv(df)
-except ValueError:
-    count=1
-    with open(path, 'r') as f:
-        lines = f.read().splitlines()
-        f.close()
-    with open(path, "w") as fw:
-        for line in lines:
-            if count <= 7:
-                fw.write(line + ",,,,,\n")
-                count += 1
-            else:
-                fw.write(line + "\n")
-        fw.close()
-    df = pd.read_csv(path, header=None, skiprows=[1, 2, 3, 4, 5, 6, 7],
+def csv_parser(csv_path):
+    #path = "C:\\Users\\ac80060\\Downloads\\DP12187442762S.csv"
+    try:
+        df = pd.read_csv(csv_path, header=None, skiprows=[1, 2, 3, 4, 5, 6, 7],
                      usecols=[2, 3, 4, 5], error_bad_lines=False)
-    extractCsv(df)
+        extractCsv(df)
+    except ValueError:
+        count=1
+        with open(csv_path, 'r') as f:
+            lines = f.read().splitlines()
+            f.close()
+        with open(csv_path, "w") as fw:
+            for line in lines:
+                if count <= 7:
+                    fw.write(line + ",,,,,\n")
+                    count += 1
+                else:
+                    fw.write(line + "\n")
+            fw.close()
+        df = pd.read_csv(csv_path, header=None, skiprows=[1, 2, 3, 4, 5, 6, 7],
+                         usecols=[2, 3, 4, 5], error_bad_lines=False)
+        extractCsv(df)
