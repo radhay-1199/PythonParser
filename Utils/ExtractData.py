@@ -43,6 +43,16 @@ def getBondedVDSL2VTURConfiguration(line):
 def getADSLSummary(line):
     if ':' in line:
         var, val, *rest = (line.split(":"))
+        if var == 'Standard':  Dictionary.dict["mode"] = val.strip()
+        if var == 'Modem State':  Dictionary.dict["status"] = val.strip()
+        if var == 'Upstream  Actual Rate':  Dictionary.dict["pair1bearer0UpstreamRate"] = val.strip()
+        if var == 'Upstream  Max Rate':  Dictionary.dict["pair1maxUpstreamRate"] = val.strip()
+        if var == 'Downstream  Actual Rate':  Dictionary.dict["pair1bearer0DownstreamRate"] = val.strip()
+        if var == 'Downstream  Max Rate':  Dictionary.dict["pair1maxDownstreamRate"] = val.strip()
+        if var == 'Upstream  Line Attenuation':  Dictionary.dict["pair1lAttnDbUp"] = val.strip()
+        if var == 'Upstream  Signal Attenuation':  Dictionary.dict["pair1sAttnDbUp"] = val.strip()
+        if var == 'Downstream  Line Attenuation':  Dictionary.dict["pair1lAttnDbDown"] = val.strip()
+        if var == 'Downstream  Signal Attenuation':  Dictionary.dict["pair1sAttnDbDown"] = val.strip()
         if var == 'Modem temperature':  Dictionary.dict["modemTemp"] = val.strip()
         if var == 'Upstream  Capacity':  Dictionary.dict["pair1capacityUp"] = val.strip()
         if var == 'Downstream  Capacity':  Dictionary.dict["pair1capacityDn"] = val.strip()
@@ -52,6 +62,18 @@ def getADSLSummary(line):
 def getVDSLSummary(line):
     if ':' in line:
         var, val, *rest = (line.split(":"))
+        if var == 'Standard':
+            Dictionary.dict["mode"] = val.strip().split(";")[0]
+            Dictionary.dict["vdsl2Profile"] = rest[0].strip()
+        if var == 'Modem State':  Dictionary.dict["status"] = val.strip()
+        if var == 'Upstream  Actual Rate':  Dictionary.dict["pair1bearer0UpstreamRate"] = val.strip()
+        if var == 'Upstream  Max Rate':  Dictionary.dict["pair1maxUpstreamRate"] = val.strip()
+        if var == 'Downstream  Actual Rate':  Dictionary.dict["pair1bearer0DownstreamRate"] = val.strip()
+        if var == 'Downstream  Max Rate':  Dictionary.dict["pair1maxDownstreamRate"] = val.strip()
+        if var == 'Upstream  Line Attenuation':  Dictionary.dict["pair1lAttnDbUp"] = val.strip()
+        if var == 'Upstream  Signal Attenuation':  Dictionary.dict["pair1sAttnDbUp"] = val.strip()
+        if var == 'Downstream  Line Attenuation':  Dictionary.dict["pair1lAttnDbDown"] = val.strip()
+        if var == 'Downstream  Signal Attenuation':  Dictionary.dict["pair1sAttnDbDown"] = val.strip()
         if var == 'Modem temperature':  Dictionary.dict["modemTemp"] = val.strip()
         if var == 'Upstream  Capacity':  Dictionary.dict["pair1capacityUp"] = val.strip()
         if var == 'Downstream  Capacity':  Dictionary.dict["pair1capacityDn"] = val.strip()
@@ -65,17 +87,36 @@ def getBondedADSLSummary(line):
     if ':' in line:
         var, val, *rest = (line.split(":"))
         if not bondedAdslSummaryFlag:
+            if var == 'Standard':  Dictionary.dict["mode"] = val.strip()
             if var == 'Modem temperature':  Dictionary.dict["modemTemp"] = val.strip()
+            if var == 'Upstream Group Rate':  Dictionary.dict["totalBearerUpStream"] = val.strip()
+            if var == 'Downstream Group Rate':  Dictionary.dict["totalBearerDnStream"] = val.strip()
             if var == 'Upstream Group Max Rate':  Dictionary.dict["upGrpMaxRate"] = val.strip()
             if var == 'Upstream  Group Capacity':  Dictionary.dict["upGrpMaxCap"] = val.strip()
             if var == 'Downstream Group Max Rate':  Dictionary.dict["dnGrpMaxRate"] = val.strip()
             if var == 'Downstream  Group Capacity':  Dictionary.dict["dnGrpMaxCap"] = val.strip()
             if var == 'Lapse Time':  Dictionary.dict["lapseTime"] = val.strip()
+            if var == 'Upstream  Actual Rate':  Dictionary.dict["pair1bearer0UpstreamRate"] = val.strip()
+            if var == 'Upstream  Max Rate':  Dictionary.dict["pair1maxUpstreamRate"] = val.strip()
+            if var == 'Upstream Line Attenuation':  Dictionary.dict["pair1lAttnDbUp"] = val.strip()
+            if var == 'Upstream Signal Attenuation':  Dictionary.dict["pair1sAttnDbUp"] = val.strip()
+            if var == 'Downstream  Actual Rate':  Dictionary.dict["pair1bearer0DownstreamRate"] = val.strip()
+            if var == 'Downstream  Max Rate':  Dictionary.dict["pair1maxDownstreamRate"] = val.strip()
+            if var == 'Downstream Line Attenuation':  Dictionary.dict["pair1lAttnDbDown"] = val.strip()
+            if var == 'Downstream Signal Attenuation':  Dictionary.dict["pair1sAttnDbDown"] = val.strip()
             if var == 'Upstream  Capacity':  Dictionary.dict["pair1capacityUp"] = val.strip()
             if var == 'Downstream  Capacity':  Dictionary.dict["pair1capacityDn"] = val.strip()
             if var == 'Upstream  Noise Margin':  Dictionary.dict["pair1marginUp"] = val.strip()
             if var == 'Downstream  Noise Margin':  Dictionary.dict["pair1marginDn"] = val.strip()
         elif bondedAdslSummaryFlag:
+            if var == 'Upstream  Actual Rate':  Dictionary.dict["pair2bearer1UpstreamRate"] = val.strip()
+            if var == 'Upstream  Max Rate':  Dictionary.dict["pair2maxUpstreamRate"] = val.strip()
+            if var == 'Upstream Line Attenuation':  Dictionary.dict["pair2lAttnDbUp"] = val.strip()
+            if var == 'Upstream Signal Attenuation':  Dictionary.dict["pair2sAttnDbUp"] = val.strip()
+            if var == 'Downstream  Actual Rate':  Dictionary.dict["pair2bearer1DownstreamRate"] = val.strip()
+            if var == 'Downstream  Max Rate':  Dictionary.dict["pair2maxDownstreamRate"] = val.strip()
+            if var == 'Downstream Line Attenuation':  Dictionary.dict["pair2lAttnDbDown"] = val.strip()
+            if var == 'Downstream Signal Attenuation':  Dictionary.dict["pair2sAttnDbDown"] = val.strip()
             if var == 'Upstream  Capacity':  Dictionary.dict["pair2capacityUp"] = val.strip()
             if var == 'Downstream  Capacity':  Dictionary.dict["pair2capacityDn"] = val.strip()
             if var == 'Upstream  Noise Margin':  Dictionary.dict["pair2marginUp"] = val.strip()
@@ -88,17 +129,38 @@ def getBondedVDSLSummary(line):
     if ':' in line:
         var, val, *rest = (line.split(":"))
         if not bondedVdslSummaryFlag:
+            if var == 'Standard':
+                Dictionary.dict["mode"] = val.strip().split(";")[0]
+                Dictionary.dict["vdsl2Profile"] = rest[0].strip()
             if var == 'Modem temperature':  Dictionary.dict["modemTemp"] = val.strip()
+            if var == 'Upstream Group Rate':  Dictionary.dict["totalBearerUpStream"] = val.strip()
+            if var == 'Downstream Group Rate':  Dictionary.dict["totalBearerDnStream"] = val.strip()
             if var == 'Upstream Group Max Rate':  Dictionary.dict["upGrpMaxRate"] = val.strip()
             if var == 'Upstream  Group Capacity':  Dictionary.dict["upGrpMaxCap"] = val.strip()
             if var == 'Downstream Group Max Rate':  Dictionary.dict["dnGrpMaxRate"] = val.strip()
             if var == 'Downstream  Group Capacity':  Dictionary.dict["dnGrpMaxCap"] = val.strip()
             if var == 'Lapse Time':  Dictionary.dict["lapseTime"] = val.strip()
+            if var == 'Upstream  Actual Rate':  Dictionary.dict["pair1bearer0UpstreamRate"] = val.strip()
+            if var == 'Upstream  Max Rate':  Dictionary.dict["pair1maxUpstreamRate"] = val.strip()
+            if var == 'Upstream Line Attenuation':  Dictionary.dict["pair1lAttnDbUp"] = val.strip()
+            if var == 'Upstream Signal Attenuation':  Dictionary.dict["pair1sAttnDbUp"] = val.strip()
+            if var == 'Downstream  Actual Rate':  Dictionary.dict["pair1bearer0DownstreamRate"] = val.strip()
+            if var == 'Downstream  Max Rate':  Dictionary.dict["pair1maxDownstreamRate"] = val.strip()
+            if var == 'Downstream Line Attenuation':  Dictionary.dict["pair1lAttnDbDown"] = val.strip()
+            if var == 'Downstream Signal Attenuation':  Dictionary.dict["pair1sAttnDbDown"] = val.strip()
             if var == 'Upstream  Capacity':  Dictionary.dict["pair1capacityUp"] = val.strip()
             if var == 'Downstream  Capacity':  Dictionary.dict["pair1capacityDn"] = val.strip()
             if var == 'Upstream  Noise Margin':  Dictionary.dict["pair1marginUp"] = val.strip()
             if var == 'Downstream  Noise Margin':  Dictionary.dict["pair1marginDn"] = val.strip()
         elif bondedVdslSummaryFlag:
+            if var == 'Upstream  Actual Rate':  Dictionary.dict["pair2bearer1UpstreamRate"] = val.strip()
+            if var == 'Upstream  Max Rate':  Dictionary.dict["pair2maxUpstreamRate"] = val.strip()
+            if var == 'Upstream Line Attenuation':  Dictionary.dict["pair2lAttnDbUp"] = val.strip()
+            if var == 'Upstream Signal Attenuation':  Dictionary.dict["pair2sAttnDbUp"] = val.strip()
+            if var == 'Downstream  Actual Rate':  Dictionary.dict["pair2bearer1DownstreamRate"] = val.strip()
+            if var == 'Downstream  Max Rate':  Dictionary.dict["pair2maxDownstreamRate"] = val.strip()
+            if var == 'Downstream Line Attenuation':  Dictionary.dict["pair2lAttnDbDown"] = val.strip()
+            if var == 'Downstream Signal Attenuation':  Dictionary.dict["pair2sAttnDbDown"] = val.strip()
             if var == 'Upstream  Capacity':  Dictionary.dict["pair2capacityUp"] = val.strip()
             if var == 'Downstream  Capacity':  Dictionary.dict["pair2capacityDn"] = val.strip()
             if var == 'Upstream  Noise Margin':  Dictionary.dict["pair2marginUp"] = val.strip()
@@ -108,6 +170,10 @@ def getADSLErrors(line):
     if ':' in line:
         var, val, *rest = (line.split(":"))
         if (var == 'Local(Dn) LOSS') and ("pair1losErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1losErrorDn'] = val.strip()
+        if (var == 'Local(Dn) FEC') and ("pair1fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecDnTtErrors'] = val.strip()
+        if (var == 'Local(Dn) CRC') and ("pair1crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcDnTtErrors'] = val.strip()
+        if (var == 'Remote(Up) FEC') and ("pair1fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecUpTtErrors'] = val.strip()
+        if (var == 'Remote(Up) CRC') and ("pair1crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcUpTtErrors'] = val.strip()
         if (var == 'Local(Dn) FEC/min') and ("pair1fecMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecMinErrorDn'] = val.strip()
         if (var == 'Local(Dn) CRC/min') and ("pair1crcMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcMinErrorDn'] = val.strip()
         if (var == 'Local(Dn) LOFS') and ("pair1lofErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1lofErrorDn'] = val.strip()
@@ -122,6 +188,10 @@ def getVDSLErrors(line):
     if ':' in line:
         var, val, *rest = (line.split(":"))
         if (var == 'Local(Dn) LOSS') and ("pair1losErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1losErrorDn'] = val.strip()
+        if (var == 'Local(Dn) FEC') and ("pair1fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecDnTtErrors'] = val.strip()
+        if (var == 'Local(Dn) CRC') and ("pair1crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcDnTtErrors'] = val.strip()
+        if (var == 'Remote(Up) FEC') and ("pair1fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecUpTtErrors'] = val.strip()
+        if (var == 'Remote(Up) CRC') and ("pair1crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcUpTtErrors'] = val.strip()
         if (var == 'Local(Dn) FEC/min') and ("pair1fecMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecMinErrorDn'] = val.strip()
         if (var == 'Local(Dn) CRC/min') and ("pair1crcMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcMinErrorDn'] = val.strip()
         if (var == 'Local(Dn) LOFS') and ("pair1lofErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1lofErrorDn'] = val.strip()
@@ -140,6 +210,10 @@ def getBondedADSLErrors(line):
         var, val, *rest = (line.split(":"))
         if not bondedAdslErrorFlag:
             if (var == 'Local(Dn) LOSS') and ("pair1losErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1losErrorDn'] = val.strip()
+            if (var == 'Local(Dn) FEC') and ("pair1fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecDnTtErrors'] = val.strip()
+            if (var == 'Local(Dn) CRC') and ("pair1crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcDnTtErrors'] = val.strip()
+            if (var == 'Remote(Up) FEC') and ("pair1fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecUpTtErrors'] = val.strip()
+            if (var == 'Remote(Up) CRC') and ("pair1crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcUpTtErrors'] = val.strip()
             if (var == 'Local(Dn) FEC/min') and ("pair1fecMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecMinErrorDn'] = val.strip()
             if (var == 'Local(Dn) CRC/min') and ("pair1crcMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcMinErrorDn'] = val.strip()
             if (var == 'Local(Dn) LOFS') and ("pair1lofErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1lofErrorDn'] = val.strip()
@@ -151,6 +225,10 @@ def getBondedADSLErrors(line):
             if (var == 'Remote(Up) LOMS') and ("pair1lomErrorUp" not in Dictionary.dict.keys()): Dictionary.dict['pair1lomErrorUp'] = val.strip()
         elif bondedAdslErrorFlag:
             if (var == 'Local(Dn) LOSS') and ("pair2losErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair2losErrorDn'] = val.strip()
+            if (var == 'Local(Dn) FEC') and ("pair2fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair2fecDnTtErrors'] = val.strip()
+            if (var == 'Local(Dn) CRC') and ("pair2crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair2crcDnTtErrors'] = val.strip()
+            if (var == 'Remote(Up) FEC') and ("pair2fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair2fecUpTtErrors'] = val.strip()
+            if (var == 'Remote(Up) CRC') and ("pair2crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair2crcUpTtErrors'] = val.strip()
             if (var == 'Local(Dn) FEC/min') and ("pair2fecMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair2fecMinErrorDn'] = val.strip()
             if (var == 'Local(Dn) CRC/min') and ("pair2crcMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair2crcMinErrorDn'] = val.strip()
             if (var == 'Local(Dn) LOFS') and ("pair2lofErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair2lofErrorDn'] = val.strip()
@@ -169,6 +247,10 @@ def getBondedVDSLErrors(line):
         var, val, *rest = (line.split(":"))
         if not bondedVdslErrorFlag:
             if (var == 'Local(Dn) LOSS') and ("pair1losErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1losErrorDn'] = val.strip()
+            if (var == 'Local(Dn) FEC') and ("pair1fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecDnTtErrors'] = val.strip()
+            if (var == 'Local(Dn) CRC') and ("pair1crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcDnTtErrors'] = val.strip()
+            if (var == 'Remote(Up) FEC') and ("pair1fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecUpTtErrors'] = val.strip()
+            if (var == 'Remote(Up) CRC') and ("pair1crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcUpTtErrors'] = val.strip()
             if (var == 'Local(Dn) FEC/min') and ("pair1fecMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1fecMinErrorDn'] = val.strip()
             if (var == 'Local(Dn) CRC/min') and ("pair1crcMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1crcMinErrorDn'] = val.strip()
             if (var == 'Local(Dn) LOFS') and ("pair1lofErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair1lofErrorDn'] = val.strip()
@@ -180,6 +262,10 @@ def getBondedVDSLErrors(line):
             if (var == 'Remote(Up) LOMS') and ("pair1lomErrorUp" not in Dictionary.dict.keys()): Dictionary.dict['pair1lomErrorUp'] = val.strip()
         elif bondedVdslErrorFlag:
             if (var == 'Local(Dn) LOSS') and ("pair2losErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair2losErrorDn'] = val.strip()
+            if (var == 'Local(Dn) FEC') and ("pair2fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair2fecDnTtErrors'] = val.strip()
+            if (var == 'Local(Dn) CRC') and ("pair2crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair2crcDnTtErrors'] = val.strip()
+            if (var == 'Remote(Up) FEC') and ("pair2fecDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair2fecUpTtErrors'] = val.strip()
+            if (var == 'Remote(Up) CRC') and ("pair2crcDnTtErrors" not in Dictionary.dict.keys()): Dictionary.dict['pair2crcUpTtErrors'] = val.strip()
             if (var == 'Local(Dn) FEC/min') and ("pair2fecMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair2fecMinErrorDn'] = val.strip()
             if (var == 'Local(Dn) CRC/min') and ("pair2crcMinErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair2crcMinErrorDn'] = val.strip()
             if (var == 'Local(Dn) LOFS') and ("pair2lofErrorDn" not in Dictionary.dict.keys()): Dictionary.dict['pair2lofErrorDn'] = val.strip()
@@ -189,6 +275,16 @@ def getBondedVDSLErrors(line):
             if (var == 'Remote(Up) CRC/min') and ("pair2crcMinErrorUp" not in Dictionary.dict.keys()): Dictionary.dict['pair2crcMinErrorUp'] = val.strip()
             if (var == 'Remote(Up) LOFS') and ("pair2lofErrorUp" not in Dictionary.dict.keys()): Dictionary.dict['pair2lofErrorUp'] = val.strip()
             if (var == 'Remote(Up) LOMS') and ("pair2lomErrorUp" not in Dictionary.dict.keys()): Dictionary.dict['pair2lomErrorUp'] = val.strip()
+
+def getVDSLGINP(line):
+    if ':' in line:
+        var, val, *rest = (line.split(":"))
+        if (var == 'Local(Dn) Retransmitted DTUs') and ("pair1rtxtxDnRetransCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1rtxtxDnRetransCount'] = val.strip()
+        if (var == 'Local(Dn) Corrected DTUs') and ("pair1rtxcDnRetransCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1rtxcDnRetransCount'] = val.strip()
+        if (var == 'Local(Dn) Uncorrected DTUs') and ("pair1rtxucDnRetransCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1rtxucDnRetransCount'] = val.strip()
+        if (var == 'Remote(Up) Retransmitted DTUs') and ("pair1rtxtxUpRetransCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1rtxtxUpRetransCount'] = val.strip()
+        if (var == 'Remote(Up) Corrected DTUs') and ("pair1rtxcUpRetransCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1rtxcUpRetransCount'] = val.strip()
+        if (var == 'Remote(Up) Uncorrected DTUs') and ("pair1rtxucUpRetransCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1rtxucUpRetransCount'] = val.strip()
 
 def getADSLPerformance(line):
     if ':' in line:
@@ -255,6 +351,12 @@ def getBondedVDSLPerformance(line):
 def getADSLSignal(line):
     if ':' in line:
         var, val, *rest = (line.split(":"))
+        if (var == 'Upstream Tx Power') and ("pair1pwrDbmUp" not in Dictionary.dict.keys()): Dictionary.dict['pair1pwrDbmUp'] = val.strip()
+        if (var == 'Downstream Tx Power') and ("pair1pwrDbmDown" not in Dictionary.dict.keys()): Dictionary.dict['pair1pwrDbmDown'] = val.strip()
+        if (var == 'Upstream Interleaving Delay') and ("pair1bearer0UpDelayCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1bearer0UpDelayCount'] = val.strip()
+        if (var == 'Downstream Interleaving Delay') and ("pair1bearer0DnDelayCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1bearer0DnDelayCount'] = val.strip()
+        if (var == 'Upstream Actual INP') and ("pair1bearer0UpInpCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1bearer0UpInpCount'] = val.strip()
+        if (var == 'Downstream Actual INP') and ("pair1bearer0DnInpCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1bearer0DnInpCount'] = val.strip()
         if (var == '1MHz Attenuation') and ("pair1oneMhzAtten" not in Dictionary.dict.keys()): Dictionary.dict['pair1oneMhzAtten'] = val.strip()
         if (var == 'Num Syncs') and ("pair1syncCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1syncCount'] = val.strip()
         if (var == 'Sync Time') and ("pair1syncTime" not in Dictionary.dict.keys()): Dictionary.dict['pair1syncTime'] = val.strip()
@@ -266,6 +368,12 @@ def getADSLSignal(line):
 def getVDSLSignal(line):
     if ':' in line:
         var, val, *rest = (line.split(":"))
+        if (var == 'Upstream Tx Power') and ("pair1pwrDbmUp" not in Dictionary.dict.keys()): Dictionary.dict['pair1pwrDbmUp'] = val.strip()
+        if (var == 'Downstream Tx Power') and ("pair1pwrDbmDown" not in Dictionary.dict.keys()): Dictionary.dict['pair1pwrDbmDown'] = val.strip()
+        if (var == 'Upstream Interleaving Delay') and ("pair1bearer0UpDelayCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1bearer0UpDelayCount'] = val.strip()
+        if (var == 'Downstream Interleaving Delay') and ("pair1bearer0DnDelayCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1bearer0DnDelayCount'] = val.strip()
+        if (var == 'Upstream Actual INP') and ("pair1bearer0UpInpCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1bearer0UpInpCount'] = val.strip()
+        if (var == 'Downstream Actual INP') and ("pair1bearer0DnInpCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1bearer0DnInpCount'] = val.strip()
         if (var == '1MHz Attenuation') and (var not in Dictionary.dict.keys()): Dictionary.dict['pair1oneMhzAtten'] = val.strip()
         if (var == 'Num Syncs') and (var not in Dictionary.dict.keys()): Dictionary.dict['pair1syncCount'] = val.strip()
         if (var == 'Sync Time') and (var not in Dictionary.dict.keys()): Dictionary.dict['pair1syncTime'] = val.strip()
@@ -279,6 +387,12 @@ def getBondedADSLSignal(line):
     if ':' in line:
         var, val, *rest = (line.split(":"))
         if not bondedAdslSignalFlag:
+            if (var == 'Upstream Tx Power') and ("pair1pwrDbmUp" not in Dictionary.dict.keys()): Dictionary.dict['pair1pwrDbmUp'] = val.strip()
+            if (var == 'Downstream Tx Power') and ("pair1pwrDbmDown" not in Dictionary.dict.keys()): Dictionary.dict['pair1pwrDbmDown'] = val.strip()
+            if (var == 'Upstream Interleaving Delay') and ("pair1bearer0UpDelayCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1bearer0UpDelayCount'] = val.strip()
+            if (var == 'Downstream Interleaving Delay') and ("pair1bearer0DnDelayCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1bearer0DnDelayCount'] = val.strip()
+            if (var == 'Upstream Actual INP') and ("pair1bearer0UpInpCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1bearer0UpInpCount'] = val.strip()
+            if (var == 'Downstream Actual INP') and ("pair1bearer0DnInpCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1bearer0DnInpCount'] = val.strip()
             if (var == '1MHz Attenuation') and ("pair1oneMhzAtten" not in Dictionary.dict.keys()): Dictionary.dict['pair1oneMhzAtten'] = val.strip()
             if (var == 'Num Syncs') and ("pair1syncCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1syncCount'] = val.strip()
             if (var == 'Sync Time') and ("pair1syncTime" not in Dictionary.dict.keys()): Dictionary.dict['pair1syncTime'] = val.strip()
@@ -287,6 +401,12 @@ def getBondedADSLSignal(line):
             if (var == 'Upstream Connected Method') and ("pair1usConnMethod" not in Dictionary.dict.keys()): Dictionary.dict['pair1usConnMethod'] = val.strip()
             if (var == 'Downstream Connected Method') and ("pair1dsConnMethod" not in Dictionary.dict.keys()): Dictionary.dict['pair1dsConnMethod'] = val.strip()
         elif bondedAdslSignalFlag:
+            if (var == 'Upstream Tx Power') and ("pair2pwrDbmUp" not in Dictionary.dict.keys()): Dictionary.dict['pair2pwrDbmUp'] = val.strip()
+            if (var == 'Downstream Tx Power') and ("pair2pwrDbmDown" not in Dictionary.dict.keys()): Dictionary.dict['pair2pwrDbmDown'] = val.strip()
+            if (var == 'Upstream Interleaving Delay') and ("pair2bearer1UpDelayCount" not in Dictionary.dict.keys()):Dictionary.dict['pair2bearer1UpDelayCount'] = val.strip()
+            if (var == 'Downstream Interleaving Delay') and ("pair2bearer1DnDelayCount" not in Dictionary.dict.keys()):Dictionary.dict['pair2bearer1DnDelayCount'] = val.strip()
+            if (var == 'Upstream Actual INP') and ("pair2bearer1UpInpCount" not in Dictionary.dict.keys()):Dictionary.dict['pair2bearer1UpInpCount'] = val.strip()
+            if (var == 'Downstream Actual INP') and ("pair2bearer1DnInpCount" not in Dictionary.dict.keys()):Dictionary.dict['pair2bearer1DnInpCount'] = val.strip()
             if (var == '1MHz Attenuation') and ("pair2oneMhzAtten" not in Dictionary.dict.keys()): Dictionary.dict['pair2oneMhzAtten'] = val.strip()
             if (var == 'Num Syncs') and ("pair2syncCount" not in Dictionary.dict.keys()): Dictionary.dict['pair2syncCount'] = val.strip()
             if (var == 'Sync Time') and ("pair2syncTime" not in Dictionary.dict.keys()): Dictionary.dict['pair2syncTime'] = val.strip()
@@ -302,12 +422,24 @@ def getBondedVDSLSignal(line):
     if ':' in line:
         var, val, *rest = (line.split(":"))
         if not bondedVdslSignalFlag:
+            if (var == 'Upstream Tx Power') and ("pair1pwrDbmUp" not in Dictionary.dict.keys()): Dictionary.dict['pair1pwrDbmUp'] = val.strip()
+            if (var == 'Downstream Tx Power') and ("pair1pwrDbmDown" not in Dictionary.dict.keys()): Dictionary.dict['pair1pwrDbmDown'] = val.strip()
+            if (var == 'Upstream Interleaving Delay') and ("pair1bearer0UpDelayCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1bearer0UpDelayCount'] = val.strip()
+            if (var == 'Downstream Interleaving Delay') and ("pair1bearer0DnDelayCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1bearer0DnDelayCount'] = val.strip()
+            if (var == 'Upstream Actual INP') and ("pair1bearer0UpInpCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1bearer0UpInpCount'] = val.strip()
+            if (var == 'Downstream Actual INP') and ("pair1bearer0DnInpCount" not in Dictionary.dict.keys()):Dictionary.dict['pair1bearer0DnInpCount'] = val.strip()
             if (var == '1MHz Attenuation') and ("pair1oneMhzAtten" not in Dictionary.dict.keys()): Dictionary.dict['pair1oneMhzAtten'] = val.strip()
             if (var == 'Num Syncs') and ("pair1syncCount" not in Dictionary.dict.keys()): Dictionary.dict['pair1syncCount'] = val.strip()
             if (var == 'Sync Time') and ("pair1syncTime" not in Dictionary.dict.keys()): Dictionary.dict['pair1syncTime'] = val.strip()
             if (var == 'Training Time') and ("pair1trainTime" not in Dictionary.dict.keys()): Dictionary.dict['pair1trainTime'] = val.strip()
             if (var == 'Estimated Length') and ("pair1estLoopLength" not in Dictionary.dict.keys()): Dictionary.dict['pair1estLoopLength'] = val.strip()
         elif bondedVdslSignalFlag:
+            if (var == 'Upstream Tx Power') and ("pair2pwrDbmUp" not in Dictionary.dict.keys()): Dictionary.dict['pair2pwrDbmUp'] = val.strip()
+            if (var == 'Downstream Tx Power') and ("pair2pwrDbmDown" not in Dictionary.dict.keys()): Dictionary.dict['pair2pwrDbmDown'] = val.strip()
+            if (var == 'Upstream Interleaving Delay') and ("pair2bearer1UpDelayCount" not in Dictionary.dict.keys()):Dictionary.dict['pair2bearer1UpDelayCount'] = val.strip()
+            if (var == 'Downstream Interleaving Delay') and ("pair2bearer1DnDelayCount" not in Dictionary.dict.keys()):Dictionary.dict['pair2bearer1DnDelayCount'] = val.strip()
+            if (var == 'Upstream Actual INP') and ("pair2bearer1UpInpCount" not in Dictionary.dict.keys()):Dictionary.dict['pair2bearer1UpInpCount'] = val.strip()
+            if (var == 'Downstream Actual INP') and ("pair2bearer1DnInpCount" not in Dictionary.dict.keys()):Dictionary.dict['pair2bearer1DnInpCount'] = val.strip()
             if (var == '1MHz Attenuation') and ("pair2oneMhzAtten" not in Dictionary.dict.keys()): Dictionary.dict['pair2oneMhzAtten'] = val.strip()
             if (var == 'Num Syncs') and ("pair2syncCount" not in Dictionary.dict.keys()): Dictionary.dict['pair2syncCount'] = val.strip()
             if (var == 'Sync Time') and ("pair2syncTime" not in Dictionary.dict.keys()): Dictionary.dict['pair2syncTime'] = val.strip()
@@ -472,31 +604,31 @@ def getVDSLBandStatistics(line):
         Dictionary.dict["pair1up0Latn"] = list[1].split("   ")[0]
         Dictionary.dict["pair1up0Satn"] = list[2].split("   ")[0]
         Dictionary.dict["pair1up0Margin"] = list[3].split("   ")[0]
-        Dictionary.dict["pair1up0TxPower"] = list[4]
+        Dictionary.dict["pair1up0TxPower"] = list[4].replace("\n","")
     if "US1   Loop" in line:
         list = line.split("=")
         Dictionary.dict["pair1up1Latn"] = list[1].split("   ")[0]
         Dictionary.dict["pair1up1Satn"] = list[2].split("   ")[0]
         Dictionary.dict["pair1up1Margin"] = list[3].split("   ")[0]
-        Dictionary.dict["pair1up1TxPower"] = list[4]
+        Dictionary.dict["pair1up1TxPower"] = list[4].replace("\n","")
     if "DS1   Loop" in line:
         list = line.split("=")
         Dictionary.dict["pair1dn1Latn"] = list[1].split("   ")[0]
         Dictionary.dict["pair1dn1Satn"] = list[2].split("   ")[0]
         Dictionary.dict["pair1dn1Margin"] = list[3].split("   ")[0]
-        Dictionary.dict["pair1dn1TxPower"] = list[4]
+        Dictionary.dict["pair1dn1TxPower"] = list[4].replace("\n","")
     if "DS2   Loop" in line:
         list = line.split("=")
         Dictionary.dict["pair1dn2Latn"] = list[1].split("   ")[0]
         Dictionary.dict["pair1dn2Satn"] = list[2].split("   ")[0]
         Dictionary.dict["pair1dn2Margin"] = list[3].split("   ")[0]
-        Dictionary.dict["pair1dn2TxPower"] = list[4]
+        Dictionary.dict["pair1dn2TxPower"] = list[4].replace("\n","")
     if "DS3   Loop" in line:
         list = line.split("=")
         Dictionary.dict["pair1dn3Latn"] = list[1].split("   ")[0]
         Dictionary.dict["pair1dn3Satn"] = list[2].split("   ")[0]
         Dictionary.dict["pair1dn3Margin"] = list[3].split("   ")[0]
-        Dictionary.dict["pair1dn3TxPower"] = list[4]
+        Dictionary.dict["pair1dn3TxPower"] = list[4].replace("\n","")
 
 def getBondedVDSLBandStatistics(line):
     global bondedVdslBandStatisticsFlag
@@ -508,53 +640,59 @@ def getBondedVDSLBandStatistics(line):
             Dictionary.dict["pair1up0Latn"] = list[1].split("   ")[0]
             Dictionary.dict["pair1up0Satn"] = list[2].split("   ")[0]
             Dictionary.dict["pair1up0Margin"] = list[3].split("   ")[0]
-            Dictionary.dict["pair1up0TxPower"] = list[4]
+            Dictionary.dict["pair1up0TxPower"] = list[4].replace("\n","")
         if "US1   Loop" in line:
             list = line.split("=")
             Dictionary.dict["pair1up1Latn"] = list[1].split("   ")[0]
             Dictionary.dict["pair1up1Satn"] = list[2].split("   ")[0]
             Dictionary.dict["pair1up1Margin"] = list[3].split("   ")[0]
-            Dictionary.dict["pair1up1TxPower"] = list[4]
+            Dictionary.dict["pair1up1TxPower"] = list[4].replace("\n","")
         if "DS1   Loop" in line:
             list = line.split("=")
             Dictionary.dict["pair1dn1Latn"] = list[1].split("   ")[0]
             Dictionary.dict["pair1dn1Satn"] = list[2].split("   ")[0]
             Dictionary.dict["pair1dn1Margin"] = list[3].split("   ")[0]
-            Dictionary.dict["pair1dn1TxPower"] = list[4]
+            Dictionary.dict["pair1dn1TxPower"] = list[4].replace("\n","")
         if "DS2   Loop" in line:
             list = line.split("=")
             Dictionary.dict["pair1dn2Latn"] = list[1].split("   ")[0]
             Dictionary.dict["pair1dn2Satn"] = list[2].split("   ")[0]
             Dictionary.dict["pair1dn2Margin"] = list[3].split("   ")[0]
-            Dictionary.dict["pair1dn2TxPower"] = list[4]
+            Dictionary.dict["pair1dn2TxPower"] = list[4].replace("\n","")
+        if "DS3   Loop" in line:
+            list = line.split("=")
+            Dictionary.dict["pair1dn3Latn"] = list[1].split("   ")[0]
+            Dictionary.dict["pair1dn3Satn"] = list[2].split("   ")[0]
+            Dictionary.dict["pair1dn3Margin"] = list[3].split("   ")[0]
+            Dictionary.dict["pair1dn3TxPower"] = list[4].replace("\n","")
     if bondedVdslBandStatisticsFlag:
         if "US0   Loop" in line:
             list = line.split("=")
             Dictionary.dict["pair2up0Latn"] = list[1].split("   ")[0]
             Dictionary.dict["pair2up0Satn"] = list[2].split("   ")[0]
             Dictionary.dict["pair2up0Margin"] = list[3].split("   ")[0]
-            Dictionary.dict["pair2up0TxPower"] = list[4]
+            Dictionary.dict["pair2up0TxPower"] = list[4].replace("\n","")
         if "US1   Loop" in line:
             list = line.split("=")
             Dictionary.dict["pair2up1Latn"] = list[1].split("   ")[0]
             Dictionary.dict["pair2up1Satn"] = list[2].split("   ")[0]
             Dictionary.dict["pair2up1Margin"] = list[3].split("   ")[0]
-            Dictionary.dict["pair2up1TxPower"] = list[4]
+            Dictionary.dict["pair2up1TxPower"] = list[4].replace("\n","")
         if "DS1   Loop" in line:
             list = line.split("=")
             Dictionary.dict["pair2dn1Latn"] = list[1].split("   ")[0]
             Dictionary.dict["pair2dn1Satn"] = list[2].split("   ")[0]
             Dictionary.dict["pair2dn1Margin"] = list[3].split("   ")[0]
-            Dictionary.dict["pair2dn1TxPower"] = list[4]
+            Dictionary.dict["pair2dn1TxPower"] = list[4].replace("\n","")
         if "DS2   Loop" in line:
             list = line.split("=")
             Dictionary.dict["pair2dn2Latn"] = list[1].split("   ")[0]
             Dictionary.dict["pair2dn2Satn"] = list[2].split("   ")[0]
             Dictionary.dict["pair2dn2Margin"] = list[3].split("   ")[0]
-            Dictionary.dict["pair2dn2TxPower"] = list[4]
+            Dictionary.dict["pair2dn2TxPower"] = list[4].replace("\n","")
         if "DS3   Loop" in line:
             list = line.split("=")
             Dictionary.dict["pair2dn3Latn"] = list[1].split("   ")[0]
             Dictionary.dict["pair2dn3Satn"] = list[2].split("   ")[0]
             Dictionary.dict["pair2dn3Margin"] = list[3].split("   ")[0]
-            Dictionary.dict["pair2dn3TxPower"] = list[4]
+            Dictionary.dict["pair2dn3TxPower"] = list[4].replace("\n","")
